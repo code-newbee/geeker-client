@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	address = "localhost:50001"
+	address = "192.168.0.105:50051"
 )
 
 func main() {
@@ -20,9 +20,9 @@ func main() {
 
 	defer conn.Close()
 
-	c := geeker.NewGeekerClient(conn)
+	c := geeker.NewGreekerClient(conn)
 
-	rsp, err := c.SayHello(context.Background(), &geeker.SayHelloRequest{RequestId: "hello in client"})
+	rsp, err := c.SayHello(context.Background(), &geeker.HelloRequest{Name: "hello in client go-gRpc"})
 	if err != nil{
 		log.Fatal(err)
 	}
